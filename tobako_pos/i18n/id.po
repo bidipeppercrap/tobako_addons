@@ -1,0 +1,6 @@
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/xml/Screens/ReceiptScreen/OrderReceipt.xml:0
+#, python-format
+msgid "CHANGE"
+msgstr "KEMBALIAN"

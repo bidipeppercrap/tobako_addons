@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem   id="product_menu_root"
+                name="📦 Products"
+                sequence="0"/>
+
+    <menuitem   id="product_overview_menu"
+                name="Overview"
+                parent="product_menu_root"
+                action="product_overview_action"
+                sequence="0"/>
+</odoo>

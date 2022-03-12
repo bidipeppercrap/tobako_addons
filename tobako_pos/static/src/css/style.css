@@ -1,0 +1,4 @@
+.receipt-change + br,
+.receipt-change + br + div {
+    display: none;
+}
