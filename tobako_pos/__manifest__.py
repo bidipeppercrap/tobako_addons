@@ -18,5 +18,5 @@ Simplify the POS by removing fields that is unnecessary for a retail industry.
         # 'web.assets_qweb': [
         #     'tobako_pos/static/src/xml/pos_receipt.xml',
         # ],
-    },
+    }
 }
