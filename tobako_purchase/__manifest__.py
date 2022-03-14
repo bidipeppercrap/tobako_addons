@@ -2,7 +2,7 @@
     'name': 'Purchase Simplified',
     'version': '1.0',
     'summary': 'Purchase Simplified for Retails',
-    'application': True,
+    'application': False,
     'description': """
 Simplify the Purchase menu by removing fields that is unnecessary for a retail industry.
     """,
