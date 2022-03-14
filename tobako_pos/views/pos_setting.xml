@@ -121,6 +121,12 @@
                 <xpath expr="//label[@for='limited_products_loading']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
+                <xpath expr="//field[@name='receipt_header']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//label[@for='receipt_header']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
                 <xpath expr="//div[@id='accounting_section']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
@@ -130,7 +136,7 @@
         <record id="point_of_sale.action_pos_config_pos" model="ir.actions.act_window">
             <field name="context">{
                 "default_iface_customer_facing_display_local": 1,
-                "default_iface_print_auto": 0,
+                "default_iface_print_via_proxy": 1,
                 "default_manual_discount": 0,
                 "default_restrict_price_control": 1,
                 "default_module_account": 0
