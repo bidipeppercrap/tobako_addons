@@ -8,7 +8,7 @@
             <field name="priority">1</field>
             <field name="arch" type="xml">
                 <xpath expr="//div[hasclass('text-muted')]" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="class" separator=" " add="d-none" />
                 </xpath>
                 <xpath expr="//div[@id='company']" position="attributes">
                     <attribute name="invisible">1</attribute>
@@ -73,9 +73,9 @@
                 <xpath expr="//label[@for='limited_partners_loading']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <!-- <xpath expr="//h2='Taxes'" position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </xpath> -->
+                <xpath expr="//h2" position="attributes">
+                    <attribute name="class" separator=" " add="d-none" />
+                </xpath>
                 <xpath expr="//field[@name='tax_regime_selection']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
@@ -88,9 +88,6 @@
                 <xpath expr="//label[@for='tax_regime']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <!-- <xpath expr="//h2='Payments'" position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </xpath> -->
                 <xpath expr="//div[@id='payment_methods_new']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
