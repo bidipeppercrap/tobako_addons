@@ -53,6 +53,10 @@
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="picking_type_id" options="{'no_open': True, 'no_create': True}" groups="stock.group_adv_location" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                 </xpath>
+                <xpath expr="//div[@name='reminder']" position="after">
+                    <field name="picking_type_id" domain="[('code','=','incoming'), '|', ('warehouse_id', '=', False), ('warehouse_id.company_id', '=', company_id)]" options="{'no_create': True}" groups="stock.group_stock_multi_locations"/>
+                    <field name="dest_address_id" groups="stock.group_stock_multi_locations" attrs="{'invisible': [('default_location_dest_id_usage', '!=', 'customer')], 'required': [('default_location_dest_id_usage', '=', 'customer')]}"/>
+                </xpath>
 
                 <!-- Page: Other Information -->
                 <xpath expr="//page[@name='purchase_delivery_invoice']" position="attributes">
