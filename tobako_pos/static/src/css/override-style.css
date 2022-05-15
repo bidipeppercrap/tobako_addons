@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+.pos-receipt .pos-receipt-logo {
+    width: 75%;
+}
+
 .pos-receipt .pos-receipt-contact > div {
     display: none;
 }
