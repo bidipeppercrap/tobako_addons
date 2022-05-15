@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
     <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('responsive-price')]" position="replace">
-            <div class="responsive-price">
-                <t t-esc="line.product_name_wrapped[0]" />
-                <span t-esc="'%.0f'% line.price_display" class="price_display pos-receipt-right-align"/>
-            </div>
+        <xpath expr="//span[hasclass('price_display')]" position="replace">
+            <span t-esc="'%.0f'% line.price_display" class="price_display pos-receipt-right-align"/>
         </xpath>
     </t>
 </templates>
