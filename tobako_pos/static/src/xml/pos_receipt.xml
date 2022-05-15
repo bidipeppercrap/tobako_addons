@@ -1,17 +1,14 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
     <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
-        <xpath expr="//span[hasclass('price_display')]" position="replace">
-            <span t-esc="'%.0f'% line.price_display" class="price_display pos-receipt-right-align"/>
-        </xpath>
     </t>
-</templates> -->
+</templates>
 
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
    <t t-extend="OrderReceipt">
        <t t-jquery=".pos-receipt .pos-receipt-contact" t-operation="append">
            <div>Pusat Grosir</div>
        </t>
    </t>
-</templates>
+</templates> -->
