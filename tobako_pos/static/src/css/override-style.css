@@ -49,6 +49,7 @@
 
 .pos .orderlines .responsive-price {
     display: flex;
+    margin-top: 10px;
 }
 
 .pos .orderlines .pos-receipt-left-padding {
