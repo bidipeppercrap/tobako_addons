@@ -10,8 +10,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
    <t t-extend="OrderReceipt">
-       <t t-jquery=".pos-receipt" t-operation='append'>
-           <h1>Pusat Sparepart Orisinil</h1>
+       <t t-jquery=".pos-receipt .pos-receipt-contact" t-operation="append">
+           <div>Pusat Grosir</div>
        </t>
    </t>
 </templates>
