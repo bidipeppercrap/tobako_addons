@@ -37,9 +37,6 @@
                 <xpath expr="//div[@id='posbox_reference']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//div[@id='pricing']" position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </xpath>
                 <xpath expr="//div[@id='iface_tipproduct']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
