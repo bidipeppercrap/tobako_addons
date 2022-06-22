@@ -116,10 +116,10 @@
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//field[@name='receipt_header']" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="invisible">0</attribute>
                 </xpath>
                 <xpath expr="//label[@for='receipt_header']" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="invisible">0</attribute>
                 </xpath>
                 <xpath expr="//div[@id='accounting_section']" position="attributes">
                     <attribute name="invisible">1</attribute>
