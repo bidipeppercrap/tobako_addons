@@ -5,12 +5,13 @@
 }
 
 .pos-receipt .pos-receipt-logo {
+    display: none;
     width: 75%;
 }
 
-.pos-receipt .pos-receipt-contact > div {
+/*.pos-receipt .pos-receipt-contact > div {
     display: none;
-}
+}*/
 .pos-receipt .pos-receipt-contact > div.cashier {
     display: block;
 }
