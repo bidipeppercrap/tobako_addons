@@ -15,7 +15,7 @@
     font-size: 18px !important;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
+    padding: 0;
 }
 
 /* Spacers */
