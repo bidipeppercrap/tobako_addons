@@ -9,6 +9,10 @@
     --header-gap: calc(var(var(--main-font-size)) * 0.25)
 }
 
+.pos .pos-receipt-container > div {
+    padding: 0;
+}
+
 .pos-receipt-container > div,
 .tobako-pos-receipt {
     font-family: MerchantCopy;
