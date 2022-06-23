@@ -1,0 +1,119 @@
+@font-face {
+    font-family: MerchantCopy;
+    src: url(../fonts/MerchantCopy.ttf);
+}
+
+:root {
+    --main-font-size: 18px;
+    --header-line-spacing: calc(var(--main-font-size) * 0.8);
+    --header-gap: calc(var(var(--main-font-size)) * 0.25)
+}
+
+.pos-receipt-container > div,
+.tobako-pos-receipt {
+    font-family: MerchantCopy;
+    font-size: 18px !important;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+}
+
+/* Spacers */
+.tobako-pos-receipt__spacing--margin-header { height: var(--main-font-size); }
+.tobako-pos-receipt__spacing--header-orderlines { height: calc(var(--main-font-size) * 1.5); }
+.tobako-pos-receipt__spacing--total-payments { height: calc(var(--main-font-size) * 1); }
+.tobako-pos-receipt__spacing--payments-change { height: calc(var(--main-font-size) * 0.5); }
+.tobako-pos-receipt__spacing--before-footer { height: calc(var(--main-font-size) * 1.5); }
+
+/* Headers */
+.tobako-pos-receipt__store-name {
+    font-weight: bold;
+    text-align: center;
+}
+
+.tobako-pos-receipt__header {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    gap: var(--header-gap);
+    padding-right: var(--main-font-size);
+    padding-left: var(--main-font-size);
+}
+
+.tobako-pos-receipt__header__datetime {
+    font-weight: normal;
+}
+
+.tobako-pos-receipt__header__contacts {
+    white-space: pre-line;
+    line-height: var(--header-line-spacing);
+}
+
+/* Orderlines */
+.tobako-pos-receipt__orderlines {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--main-font-size) / 2);
+}
+
+.tobako-pos-receipt__orderlines__line {
+    display: flex;
+    flex-direction: column;
+}
+
+.tobako-pos-receipt__line__product__details {
+    display: grid;
+    grid-template-columns: calc(var(--main-font-size) / 2) auto var(--main-font-size) 1fr auto;
+    grid-template-areas: "s qty x price total";
+}
+
+.tobako-pos-receipt__line__product__details--common {
+    padding-left: calc(var(--main-font-size) / 2);
+}
+
+.tobako-pos-receipt__product__details__qty { grid-area: qty; }
+.tobako-pos-receipt__product__details__price { grid-area: price; }
+.tobako-pos-receipt__product__details__total { grid-area: total; }
+
+.tobako-pos-receipt__line__product__customer-note {
+    font-size: calc(var(--main-font-size) * 0.8);
+}
+
+.tobako-pos-receipt__text--copy {
+    font-size: calc(var(--main-font-size) * 2);
+    font-weight: bold;
+}
+
+/* Total */
+.tobako-pos-receipt__align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tobako-pos-receipt__total {
+    display: flex;
+    padding-left: calc(var(--main-font-size) * 2);
+    font-size: calc(var(--main-font-size) * 1.5);
+}
+
+.tobako-pos-receipt__total__amount {
+    margin-left: auto;
+}
+
+/* Payment Lines */
+.tobako-pos-receipt__payment-lines {
+    display: flex;
+    flex-direction: column;
+}
+
+.tobako-pos-receipt__payment-lines__line {  
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    font-size: calc(var(--main-font-size) * 1.25);
+}
+
+/* Footer */
+
+.tobako-pos-receipt__order-data {
+    text-align: center;
+}

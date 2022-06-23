@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="TobakoReceipt" owl="1">
+        <div class="tobako-pos-receipt">
+            <!-- <t t-if="receipt.company.logo">
+                <img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo"/>
+                <br/>
+            </t> -->
+            <div class="tobako-pos-receipt__spacing--margin-header"></div>
+            <div class="tobako-pos-receipt__store-name">
+                <t t-esc="receipt.company.name" />
+            </div>
+            <div class="tobako-pos-receipt__header">
+                <t t-if="!receipt.header_html and receipt.header">
+                    <div class="tobako-pos-receipt__header__contacts">
+                        <t t-raw="receipt.header" />
+                    </div>
+                </t>
+                <div class="tobako-pos-receipt__header__datetime">
+                    <t t-if="receipt.date.localestring">
+                        <div><t t-esc="receipt.date.localestring" /><t t-if="receipt.cashier"> - <t t-esc="receipt.cashier" /></t></div>
+                    </t>
+                    <t t-else="">
+                        <div><t t-esc="receipt.date.validation_date" /><t t-if="receipt.cashier"> - <t t-esc="receipt.cashier" /></t></div>
+                    </t>
+                </div>
+            </div>
+            <div class="tobako-pos-receipt__spacing--header-orderlines"></div>
+
+            <!-- Orderlines -->
+            <div class="tobako-pos-receipt__orderlines">
+                <div class="tobako-pos-receipt__text--copy">*** COPY ***</div>
+                <t t-call="TobakoOrderLinesReceipt"/>
+            </div>
+
+            <!-- Subtotal -->
+            <t t-if="!isTaxIncluded">
+                <div class="tobako-pos-receipt__align-right">--------</div>
+                <div>Subtotal<span t-esc="env.pos.format_currency(receipt.subtotal)" class="tobako-pos-receipt__total__amount"/></div>
+                <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                    <div class="responsive-price">
+                        <t t-esc="tax.name" />
+                        <span t-esc='env.pos.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+
+            <!-- Total -->
+            <div class="tobako-pos-receipt__align-right">--------</div>
+            <div class="tobako-pos-receipt__total">
+                <div>TOTAL</div>
+                <span t-esc="env.pos.format_currency(receipt.total_with_tax)" class="tobako-pos-receipt__total__amount"/>
+            </div>
+            <t t-if="receipt.total_rounded != receipt.total_with_tax">
+                <div class="tobako-pos-receipt__total">
+                  Rounding
+                <span t-esc='env.pos.format_currency(receipt.rounding_applied)' class="tobako-pos-receipt__total__amount"/>
+                </div>
+                <div class="tobako-pos-receipt__total">
+                  To Pay
+                 <span t-esc='env.pos.format_currency(receipt.total_rounded)' class="tobako-pos-receipt__total__amount"/>
+              </div>
+            </t>
+
+            <div class="tobako-pos-receipt__spacing--total-payments"></div>
+
+            <!-- Payment Lines -->
+            <div class="tobako-pos-receipt__payment-lines">
+                <t t-foreach="receipt.paymentlines" t-as="line" t-key="line.cid">
+                    <div class="tobako-pos-receipt__payment-lines__line">
+                        <div><t t-esc="line.name" /></div>
+                        <div></div>
+                        <span t-esc="env.pos.format_currency_no_symbol(line.amount)" class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </div>
+
+            <div class="tobako-pos-receipt__spacing--payments-change"></div>
+
+            <div class="tobako-pos-receipt__total">
+                <div>KEMBALI</div>
+                <span t-esc="env.pos.format_currency(receipt.change)" class="tobako-pos-receipt__total__amount"/>
+            </div>
+
+            <!-- Extra Payment Info -->
+
+            <t t-if="receipt.total_discount">
+                <div>
+                    Discounts
+                    <span t-esc="env.pos.format_currency(receipt.total_discount)" class="pos-receipt-right-align"/>
+                </div>
+            </t>
+
+            <div class="tobako-pos-receipt__spacing--before-footer" />
+
+            <!-- Footer -->
+            <div t-if="receipt.footer_html" class="pos-receipt-center-align">
+                <t t-raw="receipt.footer_html" />
+            </div>
+
+            <div t-if="!receipt.footer_html and receipt.footer" class="pos-receipt-center-align" style="white-space:pre-line">
+                <br/>
+                <t t-esc="receipt.footer" />
+                <br/>
+                <br/>
+            </div>
+
+            <div class="tobako-pos-receipt__order-data">
+                <div><t t-esc="receipt.name" /></div>
+            </div>
+
+            <div class="after-footer">
+                <t t-foreach="receipt.paymentlines" t-as="line">
+                    <t t-if="line.ticket">
+                        <br />
+                        <div class="pos-payment-terminal-receipt">
+                            <t t-raw="line.ticket" />
+                        </div>
+                    </t>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="TobakoOrderLinesReceipt" owl="1">
+        <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+            <!-- <t t-if="isSimple(line)">
+                <div class="responsive-price">
+                    <t t-esc="line.product_name_wrapped[0]" />
+                    <span t-esc="env.pos.format_currency_no_symbol(line.price_display)" class="price_display pos-receipt-right-align"/>
+                </div>
+                <WrappedProductNameLines line="line" />
+            </t>
+            <t t-else=""> -->
+
+                <div class="tobako-pos-receipt__orderlines__line">
+                    <div class="tobako-pos-receipt__line__product" t-esc="line.product_name_wrapped[0]" />
+
+                    <WrappedProductNameLines line="line" />
+                    <t t-if="line.display_discount_policy == 'without_discount' and line.price != line.price_lst">
+                        <div class="tobako-pos-receipt__line__product__details--common">
+                            <t t-esc="env.pos.format_currency_no_symbol(line.price_lst)" />
+                            ->
+                            <t t-esc="env.pos.format_currency_no_symbol(line.price)" />
+                        </div>
+                    </t>
+                    <t t-elif="line.discount !== 0">
+                        <div class="tobako-pos-receipt__line__product__details--common">
+                            <t t-if="env.pos.config.iface_tax_included === 'total'">
+                                <t t-esc="env.pos.format_currency_no_symbol(line.price_with_tax_before_discount)"/>
+                            </t>
+                            <t t-else="">
+                                <t t-esc="env.pos.format_currency_no_symbol(line.price)"/>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-if="line.discount !== 0">
+                        <div class="tobako-pos-receipt__line__product__details--common">Discount: <t t-esc="line.discount" />%</div>
+                    </t>
+
+                    <div class="tobako-pos-receipt__line__product__details">
+                        <div class="tobako-pos-receipt__product__details__qty">
+                            <t t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/> <t t-esc="line.unit_name" />
+                        </div>
+                        <div class="tobako-pos-receipt__product__details__price">
+                            <t t-esc="env.pos.format_currency_no_symbol(line.price_display_one)" />
+                        </div>
+                        <div class="tobako-pos-receipt__product__details__total">
+                            <t t-esc="env.pos.format_currency_no_symbol(line.price_display)" />
+                        </div>
+                    </div>
+                </div>
+
+            <!-- </t> -->
+            <t t-if="line.customer_note">
+                <div class="tobako-pos-receipt__line__product__details--common tobako-pos-receipt__line__product__customer-note">
+                    <t t-esc="line.customer_note"/>
+                </div>
+            </t>
+            <t t-if="line.pack_lot_lines">
+                <div class="tobako-pos-receipt__line__product__details--common">
+                    <ul>
+                        <t t-foreach="line.pack_lot_lines" t-as="lot" t-key="lot.cid">
+                            <li>
+                                SN <t t-esc="lot.attributes['lot_name']"/>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </t>
+        </t>
+    </t>
+
+</templates>
