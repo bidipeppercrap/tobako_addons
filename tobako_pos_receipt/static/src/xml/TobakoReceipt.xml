@@ -30,7 +30,10 @@
 
             <!-- Orderlines -->
             <div class="tobako-pos-receipt__orderlines">
-                <div class="tobako-pos-receipt__text--copy">*** ASLI ***</div>
+            
+                <!-- COPY, ASLI -->
+                <div id="tobakoReceiptState" class="tobako-pos-receipt__text--copy tobako-pos-receipt__hide">normal</div>
+
                 <t t-call="TobakoOrderLinesReceipt"/>
             </div>
 
