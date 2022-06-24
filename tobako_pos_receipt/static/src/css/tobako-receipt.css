@@ -1,6 +1,6 @@
 :root {
     --main-font-size: 16px;
-    --header-line-spacing: calc(var(--main-font-size) * 0.8);
+    --header-line-spacing: calc(var(--main-font-size) * 1);
     --header-gap: calc(var(--main-font-size) * 0.25);
 }
 
@@ -20,6 +20,9 @@
 .tobako-pos-receipt__spacing--total-payments { height: calc(var(--main-font-size) * 1); }
 .tobako-pos-receipt__spacing--payments-change { height: calc(var(--main-font-size) * 0.5); }
 .tobako-pos-receipt__spacing--before-footer { height: calc(var(--main-font-size) * 1.5); }
+
+/* Hiders */
+.tobako-pos-receipt__hide { display: none; }
 
 /* Headers */
 .tobako-pos-receipt__store-name {

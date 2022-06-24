@@ -30,15 +30,10 @@
 
             <!-- Orderlines -->
             <div class="tobako-pos-receipt__orderlines">
-                <t t-if="receipt.state == 'asli'">
-                    <div class="tobako-pos-receipt__text--copy">*** ASLI ***</div>
-                </t>
-                <t t-if="receipt.state == 'copy'">
-                    <div class="tobako-pos-receipt__text--copy">*** COPY ***</div>
-                </t>
-                <t t-if="receipt.state == 'normal'">
-                    <div class="tobako-pos-receipt__text--copy">*** NORMAL ***</div>
-                </t>
+            
+                <!-- COPY, ASLI -->
+                <div id="tobakoReceiptState" class="tobako-pos-receipt__text--copy tobako-pos-receipt__hide">normal</div>
+
                 <t t-call="TobakoOrderLinesReceipt"/>
             </div>
 
