@@ -11,7 +11,7 @@
     'assets': {
         'web.assets_qweb': [
             # 'tobako_pos_keymap/static/src/xml/PaymentButton.xml',
-            # 'tobako_pos_keymap/static/src/xml/PaymentScreenKeymapped.xml',
+            'tobako_pos_keymap/static/src/xml/PaymentScreenKeymapped.xml',
             'tobako_pos_keymap/static/src/xml/ReceiptScreenKeymapped.xml'
         ]
     },
