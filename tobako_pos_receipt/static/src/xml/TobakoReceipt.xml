@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="TobakoReceipt" owl="1">
-        <div class="tobako-pos-receipt">
+        <div class="pos-receipt tobako-pos-receipt">
             <!-- <t t-if="receipt.company.logo">
                 <img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo"/>
                 <br/>
@@ -30,7 +30,7 @@
 
             <!-- Orderlines -->
             <div class="tobako-pos-receipt__orderlines">
-                <div class="tobako-pos-receipt__text--copy">*** COPY ***</div>
+                <div class="tobako-pos-receipt__text--copy">*** ASLI ***</div>
                 <t t-call="TobakoOrderLinesReceipt"/>
             </div>
 
@@ -165,6 +165,7 @@
                         <div class="tobako-pos-receipt__product__details__price">
                             <t t-esc="env.pos.format_currency_no_symbol(line.price_display_one)" />
                         </div>
+                        <div class="tobako-pos-receipt__product__details__eq">=</div>
                         <div class="tobako-pos-receipt__product__details__total">
                             <t t-esc="env.pos.format_currency_no_symbol(line.price_display)" />
                         </div>
