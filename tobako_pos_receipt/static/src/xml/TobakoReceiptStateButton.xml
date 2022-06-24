@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
     <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
         <xpath expr="//div[hasclass('buttons')]" position="inside">
-            <div class="button" t-on-click="changeState">
+            <div class="button" t-on-click="changeState" accesskey="l">
                 <span style="text-transform: uppercase;">
                     Ubah Status Struk
                 </span>
