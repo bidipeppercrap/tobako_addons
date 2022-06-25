@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
     <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('next')]" position="replace">
-            <div class="button next" t-att-class="{ highlight: !locked }"
-                t-on-click="orderDone" accesskey="p">
-                New Order <i class="fa fa-angle-double-right"></i>
-            </div>
+        <xpath expr="//div[hasclass('next')]" position="attributes">
+            <attribute name="accesskey">p</attribute>
         </xpath>
     </t>
 </templates>
