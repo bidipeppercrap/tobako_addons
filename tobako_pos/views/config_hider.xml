@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tobako_pos_config_hider" model="ir.ui.view">
+            <field name="name">tobako_pos.pos.config.form.hider</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <!-- Is Bar/Restaurant & Authorized Employee -->
+                <xpath expr="//form//sheet//div[4]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- PoS Interface -->
+                <xpath expr="//form//sheet//h2[@name='order']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//div[5]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Connected Devices -->
+                <xpath expr="//div[hasclass('o_settings_container')][4]//div[hasclass('o_setting_box')][1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('o_settings_container')][4]//div[hasclass('o_setting_box')][4]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Taxes -->
+                <xpath expr="//form//sheet//h2[3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//div[7]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('o_settings_container')][5]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Pricing -->
+                <xpath expr="//form//sheet//div[8]//div[3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//div[8]//div[4]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//div[8]//div[6]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Payments -->
+                <xpath expr="//form//sheet//h2[5]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//div[9]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Bills & Receipts -->
+                <xpath expr="//form//sheet//h2[6]" position="replace">
+                    <h2>Receipts</h2>
+                </xpath>
+                <xpath expr="//form//sheet//div[10]//div[1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//div[10]//div[4]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Inventory -->
+                <xpath expr="//form//sheet//div[@id='inventory_location']//div[hasclass('o_setting_box')][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//div[@id='inventory_location']//div[hasclass('o_setting_box')][3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Accounting -->
+                <xpath expr="//form//sheet//h2[8]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//div[12]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
