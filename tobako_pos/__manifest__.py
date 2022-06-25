@@ -1,6 +1,6 @@
 {
     'name': 'POS Simplified',
-    'version': '1.0',
+    'version': '1.1',
     'summary': 'POS Simplified for Retail',
     'application': False,
     'description': """
